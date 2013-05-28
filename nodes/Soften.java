@@ -22,11 +22,11 @@ public class Soften extends Node {
 
 		Constants.setStatus("Softening clay");
 		
-		if (!Widgets.get(1370).validate() && !Widgets.get(1251).validate()) {
+		if (!Constants.getMainWidget().validate() && !Constants.getWaitWidget().validate()) {
 			if (Inventory.isItemSelected()) {
 				Constants.setStatus("Interacting with pump.");
 				SceneEntities.getNearest(Constants.pump).click(true);
-				for (int i = 0; i < 10000 && !Widgets.get(1370).validate(); i++) {
+				for (int i = 0; i < 10000 && !Constants.getMainWidget().validate(); i++) {
 					sleep(25, 50);
 				}
 			} else {
@@ -37,14 +37,14 @@ public class Soften extends Node {
 			}
 		}
 		
-		if (Widgets.get(1370).validate()) {
+		if (Constants.getMainWidget().validate()) {
 			Constants.setStatus("Interacting with widget.");
-			Widgets.get(1370).getChild(38).click(true);
+			Constants.getWidgetButton().click(true);
 			sleep(200, 500);
 		}
 		
-		if (Widgets.get(1251).validate()) {
-			for (int i = 0; i < 10000 && Widgets.get(1251).validate(); i++) {
+		if (Constants.getWaitWidget().validate()) {
+			for (int i = 0; i < 10000 && Constants.getWaitWidget().validate(); i++) {
 				Constants.setStatus("Waiting for all clay to be softened.");
 				sleep(30, 60);
 			}

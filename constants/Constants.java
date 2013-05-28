@@ -1,6 +1,10 @@
 package atra.clay.constants;
 
+
+import org.powerbot.game.api.methods.Widgets;
 import org.powerbot.game.api.wrappers.Tile;
+import org.powerbot.game.api.wrappers.widget.Widget;
+import org.powerbot.game.api.wrappers.widget.WidgetChild;
 
 
 
@@ -58,6 +62,9 @@ public class Constants {
 		private static long startTime;
 		private static int profit = 0, clayMined = 0, claySoftened = 0, sapphires = 0, emeralds = 0, rubys = 0, diamonds = 0;
 	
+		private static Widget mainWidget = Widgets.get(1370), waitWidget = Widgets.get(1251);
+		private static WidgetChild widgetButton = Widgets.get(1370).getChild(38);
+		
 		public static void setStartTime(long time) {
 			startTime = time;
 		}
@@ -129,6 +136,22 @@ public class Constants {
 		public static void addDiamonds() {
 			diamonds++;
 		}
+
+		public static Widget getMainWidget() {
+			return mainWidget;
+		}
+
+		
+
+		public static Widget getWaitWidget() {
+			return waitWidget;
+		}
+		
+		public static WidgetChild getWidgetButton() {
+			return widgetButton;
+		}
+
+		
 		
 		
 }
