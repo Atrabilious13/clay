@@ -11,18 +11,18 @@ import org.powerbot.game.api.wrappers.widget.WidgetChild;
 public class Constants {
 
 		// ids
-		public final static int clay = 434;
-		public final static int softClay = 1761;
-		public final static int pump = 3460;
-		public static int[] rockIds = { 10577, 10578, 10579 };
+		private final static int clay = 434;
+		private final static int softClay = 1761;
+		private final static int pump = 3460;
+		private static int[] rockIds = { 10577, 10578, 10579 };
 
 		// tiles
-		public final static Tile atRocks = new Tile(3141, 3317, 0);
-		public final static Tile atPump = new Tile(3095, 3272, 0);
-		public final static Tile atBank = new Tile(3092, 3243, 0);
+		private final static Tile atRocks = new Tile(3141, 3317, 0);
+		private final static Tile atPump = new Tile(3095, 3272, 0);
+		private final static Tile atBank = new Tile(3092, 3243, 0);
 
 		// tilepaths
-		public static final Tile[] toRocks = {
+		private static final Tile[] toRocks = {
 				new Tile(3091, 3245, 0), new Tile(3092, 3250, 0),
 				new Tile(3097, 3250, 0), new Tile(3102, 3251, 0),
 				new Tile(3105, 3255, 0), new Tile(3105, 3260, 0),
@@ -36,7 +36,7 @@ public class Constants {
 				new Tile(3141, 3317, 0)
 		};
 		
-		public static final Tile[] toPump = {
+		private static final Tile[] toPump = {
 				new Tile(3140, 3318, 0), new Tile(3135, 3316, 0),
 				new Tile(3131, 3313, 0), new Tile(3128, 3309, 0),
 				new Tile(3125, 3305, 0), new Tile(3121, 3302, 0),
@@ -47,7 +47,7 @@ public class Constants {
 				new Tile(3095, 3272, 0)
 		};
 		
-		public static final Tile[] toBank = {
+		private static final Tile[] toBank = {
 				new Tile(3095, 3270, 0), new Tile(3095, 3267, 0),
 				new Tile(3095, 3264, 0), new Tile(3095, 3260, 0),
 				new Tile(3095, 3257, 0), new Tile(3095, 3253, 0),
@@ -151,7 +151,45 @@ public class Constants {
 			return widgetButton;
 		}
 
+		public static int getClay() {
+			return clay;
+		}
 		
+		public static int getSoftClay() {
+			return softClay;
+		}
+		
+		public static int getPump() {
+			return pump;
+		}
+		
+		public static int[] getRocks() {
+			return rockIds;
+		}
+		
+		public static Tile getRockTile() {
+			return atRocks;
+		}
+		
+		public static Tile getPumpTile() {
+			return atPump;
+		}
+		
+		public static Tile getBankTile() {
+			return atBank;
+		}
+		
+		public static Tile[] getRockPath() {
+			return toRocks;
+		}
+		
+		public static Tile[] getPumpPath() {
+			return toPump;
+		}
+		
+		public static Tile[] getBankPath() {
+			return toBank;
+		}
 		
 		
 }

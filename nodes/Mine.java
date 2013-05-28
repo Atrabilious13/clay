@@ -14,12 +14,12 @@ public class Mine extends Node {
 	@Override
 	public boolean activate() {
 		
-		return !Inventory.isFull() && Calculations.distanceTo(Constants.atRocks) <= 5;
+		return !Inventory.isFull() && Calculations.distanceTo(Constants.getRockTile()) <= 5;
 	}
 
 	@Override
 	public void execute() {
-		Entity rock = SceneEntities.getNearest(Constants.rockIds);
+		Entity rock = SceneEntities.getNearest(Constants.getRocks());
 		Constants.setStatus("Mining rocks.");
 		if (rock != null && rock.isOnScreen()) {
 			if (rock.interact("Mine")) {

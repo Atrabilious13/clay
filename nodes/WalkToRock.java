@@ -12,8 +12,8 @@ public class WalkToRock extends Node {
 	@Override
 	public boolean activate() {
 		// TODO Auto-generated method stub
-		return !Inventory.isFull() && Calculations.distanceTo(Constants.atRocks) >= 6
-				&& Walking.newTilePath(Constants.toRocks).validate();
+		return !Inventory.isFull() && Calculations.distanceTo(Constants.getRockTile()) >= 6
+				&& Walking.newTilePath(Constants.getRockPath()).validate();
 	}
 
 	@Override
@@ -21,11 +21,11 @@ public class WalkToRock extends Node {
 		
 		Constants.setStatus("Walking to rocks");
 		
-		if (Calculations.distanceTo(Walking.getDestination()) > 5 && Walking.newTilePath(Constants.toRocks).validate()) {
+		if (Calculations.distanceTo(Walking.getDestination()) > 5 && Walking.newTilePath(Constants.getRockPath()).validate()) {
 			sleep(35, 65);
 		}
 		
-		Walking.newTilePath(Constants.toRocks).randomize(2, 2).traverse();
+		Walking.newTilePath(Constants.getRockPath()).randomize(2, 2).traverse();
 		sleep(200, 400);
 		
 	}

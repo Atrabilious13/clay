@@ -14,8 +14,8 @@ public class WalkToPump extends Node {
 	@Override
 	public boolean activate() {
 		// TODO Auto-generated method stub
-		return Inventory.isFull() && Calculations.distanceTo(Constants.atPump) > 5
-		&& Walking.newTilePath(Constants.toPump).validate() && Inventory.contains(Constants.clay);
+		return Inventory.isFull() && Calculations.distanceTo(Constants.getPumpTile()) > 5
+		&& Walking.newTilePath(Constants.getPumpPath()).validate() && Inventory.contains(Constants.getClay());
 	}
 
 	@Override
@@ -23,11 +23,11 @@ public class WalkToPump extends Node {
 		
 		Constants.setStatus("Walking to pump.");
 		
-		if (Calculations.distanceTo(Walking.getDestination()) > 5 && Walking.newTilePath(Constants.toPump).validate()) {
+		if (Calculations.distanceTo(Walking.getDestination()) > 5 && Walking.newTilePath(Constants.getPumpPath()).validate()) {
 			sleep(35, 65);
 		}
 		
-		Walking.newTilePath(Constants.toPump).randomize(2, 2).traverse();
+		Walking.newTilePath(Constants.getPumpPath()).randomize(1, 1).traverse();
 		sleep(200, 400);
 	}
 

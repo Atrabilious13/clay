@@ -13,10 +13,10 @@ public class WalkToBank extends Node {
 	@Override
 	public boolean activate() {
 		// TODO Auto-generated method stub
-		return Inventory.isFull() && Inventory.contains(Constants.softClay)
-				&& !Inventory.contains(Constants.clay)
-				&& Calculations.distanceTo(Constants.atBank) > 5
-				&& Walking.newTilePath(Constants.toBank).validate();
+		return Inventory.isFull() && Inventory.contains(Constants.getSoftClay())
+				&& !Inventory.contains(Constants.getClay())
+				&& Calculations.distanceTo(Constants.getBankTile()) > 5
+				&& Walking.newTilePath(Constants.getBankPath()).validate();
 	}
 
 	@Override
@@ -24,11 +24,11 @@ public class WalkToBank extends Node {
 		
 		Constants.setStatus("Walking to bank.");
 		
-		if (Calculations.distanceTo(Walking.getDestination()) > 5 && Walking.newTilePath(Constants.toBank).validate()) {
+		if (Calculations.distanceTo(Walking.getDestination()) > 5 && Walking.newTilePath(Constants.getBankPath()).validate()) {
 			sleep(35, 65);
 		}
 		
-		Walking.newTilePath(Constants.toBank).randomize(2, 2).traverse();
+		Walking.newTilePath(Constants.getBankPath()).randomize(2, 2).traverse();
 		sleep(200, 400);
 	}
 

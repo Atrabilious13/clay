@@ -2,7 +2,6 @@ package atra.clay.nodes;
 
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.Calculations;
-import org.powerbot.game.api.methods.Widgets;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 
@@ -13,8 +12,8 @@ public class Soften extends Node {
 	@Override
 	public boolean activate() {
 		// TODO Auto-generated method stub
-		return Inventory.isFull() && Calculations.distanceTo(Constants.atPump) <= 5
-				&& Inventory.contains(Constants.clay);
+		return Inventory.isFull() && Calculations.distanceTo(Constants.getPumpTile()) <= 5
+				&& Inventory.contains(Constants.getClay());
 	}
 
 	@Override
@@ -25,13 +24,13 @@ public class Soften extends Node {
 		if (!Constants.getMainWidget().validate() && !Constants.getWaitWidget().validate()) {
 			if (Inventory.isItemSelected()) {
 				Constants.setStatus("Interacting with pump.");
-				SceneEntities.getNearest(Constants.pump).click(true);
+				SceneEntities.getNearest(Constants.getPump()).click(true);
 				for (int i = 0; i < 10000 && !Constants.getMainWidget().validate(); i++) {
 					sleep(25, 50);
 				}
 			} else {
 				Constants.setStatus("Selecting clay.");
-				if (Inventory.getItem(Constants.clay).getWidgetChild().interact("Use")) {
+				if (Inventory.getItem(Constants.getClay()).getWidgetChild().interact("Use")) {
 					sleep(30, 70);
 				}
 			}

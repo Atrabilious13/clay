@@ -13,9 +13,9 @@ public class UseBank extends Node {
 	@Override
 	public boolean activate() {
 		// TODO Auto-generated method stub
-		return Inventory.isFull() && Inventory.contains(Constants.softClay)
-				&& !Inventory.contains(Constants.clay)
-				&& Calculations.distanceTo(Constants.atBank) <= 5;
+		return Inventory.isFull() && Inventory.contains(Constants.getSoftClay())
+				&& !Inventory.contains(Constants.getClay())
+				&& Calculations.distanceTo(Constants.getBankTile()) <= 5;
 	}
 
 	@Override
